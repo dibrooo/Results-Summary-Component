@@ -1,0 +1,266 @@
+@font-face {
+  src: url(assets/fonts/static/HankenGrotesk-Medium.ttf);
+  font-family: Hanken Grotesk;
+  font-weight: 500;
+}
+
+@font-face {
+  src: url(assets/fonts/static/HankenGrotesk-Bold.ttf);
+  font-family: Hanken Grotesk;
+  font-weight: 700;
+}
+
+@font-face {
+  src: url(assets/fonts/static/HankenGrotesk-ExtraBold.ttf);
+  font-family: Hanken Grotesk;
+  font-weight: 800;
+}
+
+/* Primary Colors */
+$light_red: hsl(0, 100%, 67%);
+$orangey_yellow: hsl(39, 100%, 56%);
+$green_teal: hsl(166, 100%, 37%);
+$cobalt_blue: hsl(234, 85%, 45%);
+
+/* Background Colors */
+$light_slate_blue: hsl(252, 100%, 67%);
+$light_royal_blue: hsl(241, 81%, 54%);
+
+/* Circle Colors */
+$violet_blue: hsla(256, 72%, 46%, 1);
+$persian_blue: hsla(241, 72%, 46%, 0);
+
+/* Neutral */
+$white: hsl(0, 0%, 100%);
+$pale_blue: hsl(221, 100%, 96%);
+$light_lavender: hsl(241, 100%, 89%);
+$dark_gray_blue: hsl(224, 30%, 27%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Hanken Grotesk;
+}
+
+p {
+  font-size: 18px;
+}
+
+.card {
+  display: flex;
+  width: 735px;
+  height: 512px;
+  border-radius: 35px;
+  box-shadow: hsla(224, 30%, 27%, 0.2) 0px 18px 50px -10px;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 60px;
+  width: 50%;
+  height: 100%;
+  color: $white;
+  text-align: center;
+  border-radius: 35px;
+  background: linear-gradient($light_slate_blue, $light_royal_blue);
+
+  h2 {
+    color: $light_lavender;
+  }
+
+  > span {
+    font-size: 28px;
+  }
+
+  p {
+    margin: 10px 0;
+    color: $light_lavender;
+  }
+}
+
+.score-circle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  margin: 30px 0;
+  font-size: 20px;
+  color: $light_lavender;
+  border-radius: 100px;
+  background: linear-gradient($violet_blue, $persian_blue);
+
+  .main-score {
+    font-size: clamp(60px, 5.5vw, 70px);
+    font-weight: 800;
+    color: $white;
+  }
+
+  .total-score-circle {
+    font-size: clamp(16px, 1.5vw, 20px);
+    opacity: 0.5;
+  }
+}
+
+.summary {
+  padding: 40px;
+  width: 50%;
+
+  h2 {
+    color: $dark_gray_blue;
+  }
+
+  ul {
+    list-style: none;
+    margin: 30px 0;
+  }
+
+  button {
+    width: 100%;
+    height: 55px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: $white;
+    background-color: $dark_gray_blue;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+
+    &:hover {
+      background: linear-gradient($light_slate_blue, $light_royal_blue);
+    }
+  }
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+  padding: 0 20px;
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+
+  .item-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+  }
+
+  .list-score {
+    font-weight: 800;
+    color: $dark_gray_blue;
+
+    .total-score {
+      opacity: 0.5;
+    }
+  }
+}
+
+.reaction-color {
+  background-color: hsla(
+    hue($light_red),
+    saturation($light_red),
+    lightness($light_red),
+    0.05
+  );
+
+  .item-name span {
+    color: $light_red;
+  }
+}
+
+.memory-color {
+  background-color: hsla(
+    hue($orangey_yellow),
+    saturation($orangey_yellow),
+    lightness($orangey_yellow),
+    0.05
+  );
+
+  .item-name span {
+    color: $orangey_yellow;
+  }
+}
+
+.verbal-color {
+  background-color: hsla(
+    hue($green_teal),
+    saturation($green_teal),
+    lightness($green_teal),
+    0.05
+  );
+
+  .item-name span {
+    color: $green_teal;
+  }
+}
+
+.visual-color {
+  background-color: hsla(
+    hue($cobalt_blue),
+    saturation($cobalt_blue),
+    lightness($cobalt_blue),
+    0.05
+  );
+
+  .item-name span {
+    color: $cobalt_blue;
+  }
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 375px) {
+  .card {
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    box-shadow: none;
+  }
+
+  .results {
+    width: 100%;
+    padding: 20px 30px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .score-circle {
+    width: 140px;
+    height: 140px;
+    margin: 20px 0;
+  }
+
+  .summary {
+    width: 100%;
+    padding: 20px 30px;
+
+    ul {
+      margin: 20px 0;
+    }
+  }
+}
